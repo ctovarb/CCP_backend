@@ -15,9 +15,5 @@ def get_numero():
     return jsonify(numeros[(random.randint(0, 1))])
 
 
-@app.route('/estado')
-def get_estado():
-    return '', 200
-
 if __name__ == '__main__':
     app.run()
