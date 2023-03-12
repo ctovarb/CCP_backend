@@ -14,13 +14,11 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'jw
 app.config['JWT_SECRET_KEY'] = 'super-secret'  # Change on production
 
 
-
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
 jwt = JWTManager(app)
 
 
-# Database models
 class User(db.Model):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
@@ -28,13 +26,11 @@ class User(db.Model):
     password = Column(String)
 
 
-# DB Schemas
 class UserSchema(ma.Schema):
     class Meta:
         fields = ('id', 'usuario', 'password')
 
 
-# Marsh mellow db adds
 user_schema = UserSchema()
 users_schema = UserSchema(many=True)
 
